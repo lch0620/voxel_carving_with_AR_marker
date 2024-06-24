@@ -9,7 +9,7 @@
 
 using namespace std;
 using namespace cv;
-namespace fs = std::filesystem;
+namespace fs = filesystem;
 
 namespace {
     const char* about =
@@ -19,35 +19,15 @@ namespace {
         "  To finish capturing, press 'ESC' key and calibration starts.\n";
 }
 
-void drawMarkerIds(Mat& image, const vector<int>& markerIds, const vector<vector<Point2f>>& markerCorners) {
-    for (size_t i = 0; i < markerIds.size(); i++) {
-        Point2f center(0, 0);
-        for (const auto& corner : markerCorners[i]) {
-            center += corner;
-        }
-        center /= 4.0;
-
-        putText(image, "id: " + to_string(markerIds[i]), center, FONT_HERSHEY_SIMPLEX, 2.0, Scalar(255, 0, 0), 3);
-    }
-}
-
-void drawCharucoCorners(Mat& image, const Mat& charucoCorners, const Mat& charucoIds, double fontSize, Scalar fontColor, int thickness) {
-    for (int i = 0; i < charucoCorners.rows; i++) {
-        Point2f corner = charucoCorners.at<Point2f>(i, 0);
-        int id = charucoIds.at<int>(i, 0);
-        circle(image, corner, 5, Scalar(0, 0, 255), -1);
-        putText(image, "id: " + to_string(id), corner + Point2f(5, -5), FONT_HERSHEY_SIMPLEX, fontSize, fontColor, thickness);
-    }
-}
-
-int main() {
+int _main() {
+    std::cout << "Started calibration main..." << std::endl;
     int squaresX = 8; // Number of squares in X direction
     int squaresY = 11; // Number of squares in Y direction
-    float squareLength = 0.021f; // Square side length (in meters)
-    float markerLength = 0.015f; // Marker side length (in meters)
-    string outputFile = "output2115.yml"; // Output file with calibrated camera parameters
-    string imageFolder = "C:/Users/user/OneDrive/桌面/3D scanning/Exercises/voxel_carving_with_AR_marker/Data/checkerboard"; // Input folder with images
-    bool showChessboardCorners = false; // Show detected chessboard corners after calibration
+    float squareLength = 0.015f; // Square side length (in meters)
+    float markerLength = 0.011f; // Marker side length (in meters)
+    string outputFile = "output.yml"; // Output file with calibrated camera parameters
+    string imageFolder = "C:/Assignments/3DScanning/Project/environment/Exercise-2/Data/checkerboard"; // Input folder with images
+    bool showChessboardCorners = true; // Show detected chessboard corners after calibration
 
     int calibrationFlags = 0;
     float aspectRatio = 1;
@@ -105,21 +85,18 @@ int main() {
             Mat currentCharucoCorners, currentCharucoIds;
             vector<Point3f> currentObjectPoints;
             vector<Point2f> currentImagePoints;
+
             // Detect ChArUco board
             detector.detectBoard(image, currentCharucoCorners, currentCharucoIds);
- 
+
             // Draw results on the original image
             image.copyTo(imageCopy);
             if (!markerIds.empty()) {
                 aruco::drawDetectedMarkers(imageCopy, markerCorners);
-                drawMarkerIds(imageCopy, markerIds, markerCorners); // Draw larger marker IDs
-                printf("marker id is empty\n");
             }
 
             if (currentCharucoCorners.total() > 3) {
-                //aruco::drawDetectedCornersCharuco(imageCopy, currentCharucoCorners, currentCharucoIds);
-                drawCharucoCorners(imageCopy, currentCharucoCorners, currentCharucoIds, 1.0, Scalar(255, 0, 0), 2); 
-                printf("current corner > 3\n");
+                aruco::drawDetectedCornersCharuco(imageCopy, currentCharucoCorners, currentCharucoIds);
             }
 
             // Resize the image for display
@@ -127,7 +104,7 @@ int main() {
             resize(imageCopy, resizedImage, Size(targetWidth, targetHeight));
 
             putText(resizedImage, "Press 'c' to add current frame. 'ESC' to finish and calibrate",
-                Point(10, 40), FONT_HERSHEY_SIMPLEX, 1.0, Scalar(255, 0, 0), 2); // Increased font size and thickness
+                Point(10, 20), FONT_HERSHEY_SIMPLEX, 0.5, Scalar(255, 0, 0), 2);
 
             imshow("out", resizedImage);
             resizeWindow("out", resizedImage.cols, resizedImage.rows); // Resize window to fit image size
