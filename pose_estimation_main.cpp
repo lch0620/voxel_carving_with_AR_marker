@@ -12,9 +12,10 @@ using namespace cv;
 int main() {
 
     string imageFolder = "C:/Assignments/3DScanning/Project/environment/Exercise-2/Data/Owl";
-    string imageFile = "C:/Assignments/3DScanning/Project/environment/Exercise-2/Data/Owl/B8B14F3E-3C63-4282-A347-75FEBE726EF9.jpeg";
+    string imageFile = "C:/Assignments/3DScanning/Project/environment/Exercise-2/Data/Owl/4F75CFBB-A5E1-402B-A7F4-DD04B8AC2C64.jpeg";
     string calibrationFile = "C:/Assignments/3DScanning/Project/environment/Exercise-2/output.yml";
     float markerLength = 0.02f; // In meters
+    float markerSeparation = 0.018f;
     // Define target width and height for resizing images
     int targetWidth = 1200;
     int targetHeight = 1000;
@@ -37,10 +38,12 @@ int main() {
     cv::imshow("Original image: ", resized_image);
     waitKey(5000);
 
+    // Board detection, pose estimation parameters
     aruco::DetectorParameters detectorParams = aruco::DetectorParameters();
     aruco::Dictionary dictionary = aruco::getPredefinedDictionary(aruco::DICT_ARUCO_ORIGINAL);
+    aruco::GridBoard board(Size(3, 7), markerLength, markerSeparation, dictionary);
+    cv::Vec3d rvec, tvec;
 
-    detectAndEstimatePose(resized_image, cameraMatrix, distCoeffs, dictionary, detectorParams, markerLength);
-    
+    detectAndEstimatePose(image, cameraMatrix, distCoeffs, dictionary, detectorParams, markerLength, board, rvec, tvec);
     return 0;
 }
