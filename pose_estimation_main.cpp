@@ -44,6 +44,7 @@ int main() {
     aruco::GridBoard board(Size(3, 7), markerLength, markerSeparation, dictionary);
     cv::Vec3d rvec, tvec;
 
-    detectAndEstimatePose(image, cameraMatrix, distCoeffs, dictionary, detectorParams, markerLength, board, rvec, tvec);
+    board_detectAndPose(image, cameraMatrix, distCoeffs, dictionary, detectorParams, markerLength, board, rvec, tvec);
+    //individual_detectAndPose(image, cameraMatrix, distCoeffs, dictionary, detectorParams, markerLength, board);
     return 0;
 }
