@@ -4,8 +4,6 @@
 #include <opencv2/opencv.hpp>
 #include <filesystem>
 #include <iostream>
-#include <opencv2\core.hpp>
-#include <opencv2\highgui.hpp>
 
 using namespace cv;
 using namespace std;
@@ -13,11 +11,13 @@ namespace fs = std::filesystem;
 
 class ImageSegmentation {
 public:
-    ImageSegmentation(const string& folder, const Scalar& minColor, const Scalar& maxColor, int targetWidth, int targetHeight)
-        : imageFolder(folder), COLOR_MIN(minColor), COLOR_MAX(maxColor), targetWidth(targetWidth), targetHeight(targetHeight) {}
+    ImageSegmentation(const string& inputFolder, const string& outputFolder, const Scalar& minColor, const Scalar& maxColor, int targetWidth, int targetHeight)
+        : inputFolder(inputFolder), outputFolder(outputFolder), COLOR_MIN(minColor), COLOR_MAX(maxColor), targetWidth(targetWidth), targetHeight(targetHeight) {}
 
     void performSegmentation() {
-        for (const auto& entry : fs::directory_iterator(imageFolder)) {
+        fs::create_directories(outputFolder);  // Create the output directory if it doesn't exist
+
+        for (const auto& entry : fs::directory_iterator(inputFolder)) {
             if (entry.is_regular_file()) {
                 processImage(entry.path().string());
             }
@@ -25,7 +25,8 @@ public:
     }
 
 private:
-    string imageFolder;
+    string inputFolder;
+    string outputFolder;
     Scalar COLOR_MIN;
     Scalar COLOR_MAX;
     int targetWidth;
@@ -55,7 +56,7 @@ private:
         bitwise_or(and_thresh, xor_thresh, result_thresh);
         bitwise_and(add_res, result_thresh, final_thresh);
 
-        erode(final_thresh, final_thresh, Mat(), Point(-1, -1), 5);
+        erode(final_thresh, final_thresh, Mat(), Point(-1, -1), 10);
         bitwise_and(src, src, rr_thresh, final_thresh);
 
         Mat rrCopy;
@@ -63,9 +64,11 @@ private:
         Mat rr_thresh2;
         resize(rrCopy, rr_thresh2, Size(targetWidth, targetHeight));
 
-        imshow("Segmented Image", rr_thresh2);
-        imwrite("Segmented_Image.jpg", rr_thresh2);
+        // Save the segmented image in the output folder
+        string outputFilePath = outputFolder + "/" + fs::path(imagePath).filename().string();
+        imwrite(outputFilePath, rr_thresh);
 
+        imshow("Segmented Image", rr_thresh2);
         waitKey(0);
     }
 };
