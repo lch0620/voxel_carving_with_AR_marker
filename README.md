@@ -21,7 +21,6 @@ The project performs 3D reconstruction of an object using a series of images tak
 4. **Voxel Carving**: Uses the intrinsic, extrinsic parameters, and foreground masks to perform voxel carving and reconstruct the 3D model of the object.
 
 ## Project Structure
-.
 ├── calibration.hpp
 ├── segmentation.hpp
 ├── pose_estimation.hpp
