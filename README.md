@@ -20,14 +20,12 @@ The project performs 3D reconstruction of an object using a series of images tak
 3. **Foreground Segmentation**: Segments the foreground (object and markers) from the images.
 4. **Voxel Carving**: Uses the intrinsic, extrinsic parameters, and foreground masks to perform voxel carving and reconstruct the 3D model of the object.
 
-## Project Structure
 voxel_carving_with_AR_marker/
-|
 ├── Data/
-    ├── charucoboard/
-    ├── checkerboard/
-    ├── Ferrari/
-    ├── Owl/  
+│ ├── charucoboard/
+│ ├── checkerboard/
+│ ├── Ferrari/
+│ ├── Owl/
 ├── calibration.hpp
 ├── segmentation.hpp
 ├── pose_estimation.hpp
@@ -95,9 +93,6 @@ voxel_carving_with_AR_marker/
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
 
-## Important Notes
-
-- Do not include any heavy files (more than 15 MB) in this repository. Instead, upload them to any cloud storage and leave a link here if necessary.
 
 For any questions or issues, please open an issue in the repository or contact the maintainer.
 
