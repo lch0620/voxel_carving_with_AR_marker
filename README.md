@@ -36,7 +36,7 @@ voxel_carving_with_AR_marker/
 
 ## Dependencies
 
-- OpenCV (version 4.x.x or higher)
+- OpenCV (version 4.10.0 or higher)
 
 ## Installation
 
