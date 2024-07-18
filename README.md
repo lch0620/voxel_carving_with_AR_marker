@@ -29,6 +29,8 @@ data
     │   └── ...
     └── line_annotations.json
 ```
+
+``` 
 voxel_carving_with_AR_marker/
 ├── Data/
 │ ├── charucoboard/
@@ -41,7 +43,7 @@ voxel_carving_with_AR_marker/
 ├── voxel_carving.hpp
 ├── main.cpp
 ├── README.md
-
+``` 
 
 ## Dependencies
 
