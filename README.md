@@ -26,12 +26,12 @@ voxel_carving_with_AR_marker/
 │   ├── charucoboard/
 │   ├── checkerboard/
 │   ├── Ferrari/
-│   ├── Owl/
-└── calibration.hpp
-└── segmentation.hpp
-└── pose_estimation.hpp
-└── voxel_carving.hpp
-└── main.hpp
+│   └── Owl/
+├── calibration.hpp
+├── segmentation.hpp
+├── pose_estimation.hpp
+├── voxel_carving.hpp
+├── main.hpp
 └── README.md  
 ```
 
