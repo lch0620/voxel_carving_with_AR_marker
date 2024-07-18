@@ -19,7 +19,16 @@ The project performs 3D reconstruction of an object using a series of images tak
 2. **Pose Estimation**: Uses images with ArUco markers to estimate the camera extrinsics.
 3. **Foreground Segmentation**: Segments the foreground (object and markers) from the images.
 4. **Voxel Carving**: Uses the intrinsic, extrinsic parameters, and foreground masks to perform voxel carving and reconstruct the 3D model of the object.
-
+``` 
+data
+└── Structured3D
+    │── Structured3D
+    │   ├── scene_00000
+    │   ├── scene_00001
+    │   ├── scene_00002
+    │   └── ...
+    └── line_annotations.json
+```
 voxel_carving_with_AR_marker/
 ├── Data/
 │ ├── charucoboard/
