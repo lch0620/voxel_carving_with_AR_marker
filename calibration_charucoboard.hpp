@@ -1,5 +1,5 @@
-#ifndef CALIBRATION_HPP
-#define CALIBRATION_HPP
+#ifndef CALIBRATION_CHARUCOBOARD_HPP
+#define CALIBRATION_CHARUCOBOARD_HPP
 
 #include <iostream>
 #include <vector>
@@ -215,4 +215,4 @@ void Calibration::drawCharucoCorners(Mat& image, const Mat& charucoCorners, cons
     }
 }
 
-#endif // CALIBRATION_HPP
+#endif // CALIBRATION_CHARUCOBOARD_HPP

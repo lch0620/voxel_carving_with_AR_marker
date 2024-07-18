@@ -1,5 +1,5 @@
-#ifndef Calibration22_HPP
-#define Calibration22_HPP
+#ifndef CALIBRATION_NORMAL_CHECKERBOARD_HPP
+#define CALIBRATION_NORMAL_CHECKERBOARD_HPP
 
 #include <iostream>
 #include <vector>
@@ -184,4 +184,4 @@ void Calibration2::drawChessboardCorners(Mat& image, const vector<Point2f>& corn
     }
 }
 
-#endif // Calibration22_HPP
+#endif // CALIBRATION_NORMAL_CHECKERBOARD_HPP
