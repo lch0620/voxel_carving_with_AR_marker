@@ -11,6 +11,7 @@ This repository contains the code for a 3D reconstruction project using techniqu
 - [Installation](#installation)
 - [Usage](#usage)
 - [Description of Files](#description-of-files)
+- [References](#references)
 - [Important Notes](#important-notes)
 
 ## Overview
@@ -95,7 +96,12 @@ voxel_carving_with_AR_marker/
 
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
+    - 
+## References
+Some parts of this project reference the following OpenCV tutorials:
 
+1. [Camera Calibration](https://docs.opencv.org/4.x/da/d13/tutorial_aruco_calibration.html)
+2. [Pose Estimation using ArUco Markers](https://docs.opencv.org/4.x/db/da9/tutorial_aruco_board_detection.html)
 
 ## Authors:
 - **Ling-Hsuan Hsu**
