@@ -41,7 +41,7 @@ voxel_carving_with_AR_marker/
 ├── main.hpp
 └── README.md  
 ```
-
+We downloaded the NeRF data from here: [NeRF_chair](https://drive.google.com/drive/folders/15dS1fw45jvXOiDBqSWCC49w2x5OSyVTi)
 
 ## Dependencies
 
