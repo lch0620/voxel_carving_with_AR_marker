@@ -79,12 +79,17 @@ voxel_carving_with_AR_marker/
 
 ## Description of Files
 
-- **calibration.hpp**:
+- **calibration_charucoboard.hpp**:
+    - Contains functions for performing camera calibration using ChArUcoboard images.
+    - Input: ChArUcoboard images
+    - Output: Camera intrinsic and distortion coefficients
+    
+- **calibration_normal_checkerboard.hpp**:
     - Contains functions for performing camera calibration using checkerboard images.
     - Input: Checkerboard images
     - Output: Camera intrinsic and distortion coefficients
 
-- **segmentation.hpp**:
+- **foreground_segmentation.hpp**:
     - Contains functions for performing foreground segmentation on images with ArUco markers.
     - Input: Images with ArUco markers
     - Output: Foreground masks
