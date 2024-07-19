@@ -106,7 +106,8 @@ We downloaded the NeRF data from here: [NeRF_chair](https://drive.google.com/dri
 
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
-    - The `main.cpp` file includes sections for two different datasets. To run the code for a specific dataset, uncomment the corresponding section. Detailed instructions and comments are provided inside the code.
+    - The `main.cpp` file includes sections for two different datasets (Our data & NeRF data). To run the code for a specific dataset, uncomment the corresponding section. Detailed instructions and comments are provided inside the code.
+    - Now the algorithm works on NeRF data, while our data need further enhancements.
 
 ## References
 Some parts of this project reference the following OpenCV tutorials:
