@@ -31,7 +31,8 @@ voxel_carving_with_AR_marker/
 │   ├── charucoboard/
 │   ├── checkerboard/
 │   ├── Ferrari/
-│   └── Owl/
+│   ├── Owl/
+│   └── NeRF_chair_test/
 ├── calibration.hpp
 ├── segmentation.hpp
 ├── pose_estimation.hpp
@@ -99,7 +100,8 @@ voxel_carving_with_AR_marker/
 
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
-    - 
+    - The `main.cpp` file includes sections for two different datasets. To run the code for a specific dataset, uncomment the corresponding section. Detailed instructions and comments are provided inside the code.
+
 ## References
 Some parts of this project reference the following OpenCV tutorials:
 
