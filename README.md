@@ -44,8 +44,8 @@ voxel_carving_with_AR_marker/
 
 1. **Clone the repository**:
     ```bash
-    git clone https://github.com/your_username/3d_reconstruction.git
-    cd 3d_reconstruction
+    git clone https://github.com/your_username/voxel_carving_with_AR_marker.git
+    cd voxel_carving_with_AR_marker
     ```
 
 2. **Install OpenCV**:
@@ -57,17 +57,17 @@ voxel_carving_with_AR_marker/
 ## Usage
 
 1. **Prepare your images**:
-    - Place the checkerboard images in the `images/checkerboard` directory.
-    - Place the images with ArUco markers in the `images/aruco_markers` directory.
+    - Place the checkerboard images in the `Data/checkerboard` directory.
+    - Create a directory `Data/your_object` and place the images with object and ArUco markers in it.
 
 2. **Compile the project**:
     ```bash
-    g++ -o 3d_reconstruction main.cpp `pkg-config --cflags --libs opencv4`
+    g++ -o voxel_carving_with_AR_marker main.cpp `pkg-config --cflags --libs opencv4`
     ```
 
 3. **Run the executable**:
     ```bash
-    ./3d_reconstruction
+    ./voxel_carving_with_AR_marker
     ```
 
 ## Description of Files
@@ -95,6 +95,10 @@ voxel_carving_with_AR_marker/
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
 
+
+## Authors:
+- **Ling-Hsuan Hsu**
+- **Matthew Chi Hug Lau**
 
 For any questions or issues, please open an issue in the repository or contact the maintainer.
 
