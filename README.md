@@ -33,8 +33,9 @@ voxel_carving_with_AR_marker/
 │   ├── Ferrari/
 │   ├── Owl/
 │   └── NeRF_chair_test/
-├── calibration.hpp
-├── segmentation.hpp
+├── calibration_charucoboard.hpp
+├── calibration_normal_checkerboard.hpp
+├── foreground_segmentation.hpp
 ├── pose_estimation.hpp
 ├── voxel_carving.hpp
 ├── main.hpp
