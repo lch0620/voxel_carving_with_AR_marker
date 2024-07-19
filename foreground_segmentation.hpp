@@ -56,19 +56,24 @@ private:
         bitwise_or(and_thresh, xor_thresh, result_thresh);
         bitwise_and(add_res, result_thresh, final_thresh);
 
-        erode(final_thresh, final_thresh, Mat(), Point(-1, -1), 10);
+        erode(final_thresh, final_thresh, Mat(), Point(-1, -1), 8);
         bitwise_and(src, src, rr_thresh, final_thresh);
 
-        Mat rrCopy;
-        rr_thresh.copyTo(rrCopy);
-        Mat rr_thresh2;
-        resize(rrCopy, rr_thresh2, Size(targetWidth, targetHeight));
+        cv::Mat hsv;
+        cv::cvtColor(rr_thresh, hsv, cv::COLOR_BGR2HSV);
 
-        // Save the segmented image in the output folder
+        // Define range for yellow color and apply mask
+        cv::Mat mask_final;
+        cv::inRange(hsv, cv::Scalar(20, 100, 100), cv::Scalar(30, 255, 255), mask_final);
+
+        Mat copy;
+        mask_final.copyTo(copy);
+        resize(copy, copy, Size(targetWidth, targetHeight));
+
         string outputFilePath = outputFolder + "/" + fs::path(imagePath).filename().string();
-        imwrite(outputFilePath, rr_thresh);
+        imwrite(outputFilePath, mask_final);
 
-        imshow("Segmented Image", rr_thresh2);
+        imshow("Segmented Image", copy);
         waitKey(0);
     }
 };
