@@ -112,8 +112,9 @@ We downloaded the NeRF data from here: [NeRF_chair](https://drive.google.com/dri
 ## References
 Some parts of this project reference the following OpenCV tutorials:
 
-1. [Camera Calibration](https://docs.opencv.org/4.x/da/d13/tutorial_aruco_calibration.html)
-2. [Pose Estimation using ArUco Markers](https://docs.opencv.org/4.x/db/da9/tutorial_aruco_board_detection.html)
+1. [Camera Calibration_ChArUcoboard](https://docs.opencv.org/4.x/da/d13/tutorial_aruco_calibration.html)
+2. [Camera Calibration_Normal_Checkerboard](https://docs.opencv.org/4.x/dc/dbb/tutorial_py_calibration.html)
+3. [Pose Estimation using ArUco Markers](https://docs.opencv.org/4.x/db/da9/tutorial_aruco_board_detection.html)
 
 ## Authors:
 - **Ling-Hsuan Hsu**
