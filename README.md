@@ -95,6 +95,7 @@ voxel_carving_with_AR_marker/
 - **main.cpp**:
     - Entry point of the project. It orchestrates the calibration, pose estimation, segmentation, and voxel carving processes.
 
+
 ## Authors:
 - **Ling-Hsuan Hsu**
 - **Matthew Chi Hug Lau**
