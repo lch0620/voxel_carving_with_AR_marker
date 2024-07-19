@@ -198,7 +198,7 @@ int main(int argc, char** argv) {
         0., 1.11111103e+03 * scale, 4.00000000e+02 * scale,
         0., 0., 1.);
 
-    std::string filename = "inverted_flipped_extrinsics_chair.csv";
+    std::string filename = "C:/Users/user/OneDrive/桌面/3D scanning/Exercises/voxel_carving_with_AR_marker/Data/NeRF_chair_extrinsics.csv";
     std::vector<std::vector<double>> data = readCSV(filename);
     std::vector<cv::Mat> extrinsicMatrices = convertToMatrices(data);
 
