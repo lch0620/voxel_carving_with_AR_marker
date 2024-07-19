@@ -222,7 +222,7 @@ int main(int argc, char** argv) {
 
 
     /* 2. retrieve foreground masks */
-    std::string image_directory = "C:/Users/user/OneDrive/桌面/3D scanning/test";
+    std::string image_directory = "C:/Users/user/OneDrive/桌面/3D scanning/Exercises/voxel_carving_with_AR_marker/Data/NeRF_chair_test";
     std::cout << "Loading segmented images from: " << image_directory << std::endl;
     std::vector<cv::Mat> foregroundMasks;
 
