@@ -36,7 +36,7 @@ int main(int argc, char** argv) {
     int squaresY = 11; // Number of squares in Y direction
     float squareLength = 0.015f; // Square side length (in meters)
     float markerLength = 0.011f; // Marker side length (in meters)
-    string outputFile = "output1511.yml"; // Output file with calibrated camera parameters
+    string outputFile = "output_charucoboard.yml"; // Output file with calibrated camera parameters
     bool showChessboardCorners = false; // Show detected chessboard corners after calibration
 
     Calibration calibration(imageFolder_cal, squaresX, squaresY, squareLength, markerLength, outputFile, showChessboardCorners);
@@ -52,7 +52,7 @@ int main(int argc, char** argv) {
     int squaresX = 6; // Number of squares in X direction
     int squaresY = 9; // Number of squares in Y direction
     float squareLength = 0.0225f; // Square side length (in meters)
-    string outputFile = "output_chessboard4.yml"; // Output file with calibrated camera parameters
+    string outputFile = "output_normal_checkerboard.yml"; // Output file with calibrated camera parameters
     bool showChessboardCorners = false; // Show detected chessboard corners after calibration
 
     Calibration2 calibration(imageFolder_cal, squaresX, squaresY, squareLength, outputFile, showChessboardCorners);
